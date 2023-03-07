@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap');
+body,
+button {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+button {
+  font-weight: 800;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background-color: #f3f3f3;
+}
+
+.app {
+  width: 695px;
+  padding: 30px;
+  display: grid;
+  background-color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  gap: 30px 50px;
+  grid-template-areas:
+    'header header'
+    'calculator layout'
+    'calculator layout';
+}
+
+.header {
+  grid-area: header;
+  justify-self: end;
+}
+.calc {
+  grid-area: calc;
+}
+.layout {
+  grid-area: layout;
+}

@@ -1,0 +1,38 @@
+.btn {
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  height: 48px;
+}
+
+.primary {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #e2e3e5;
+  &:hover {
+    border: 2px solid #5d5fef;
+  }
+}
+
+.secondary {
+  background: #5d5fef;
+  color: #ffffff;
+}
+
+.small {
+  width: 52px;
+}
+
+.medium {
+  width: 72px;
+}
+
+.large {
+  width: 152px;
+}
+
+.extralarge {
+  width: 232px;
+  height: 64px;
+}

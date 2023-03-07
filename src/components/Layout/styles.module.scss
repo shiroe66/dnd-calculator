@@ -1,0 +1,33 @@
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: 243px;
+  height: 448px;
+  border: 2px dashed #c4c4c4;
+  border-radius: 6px;
+}
+
+.wrapper {
+  font-family: 'Inter';
+  font-style: normal;
+  text-align: center;
+}
+
+.title {
+  color: #5d5fef;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.description {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #6b7280;
+}
