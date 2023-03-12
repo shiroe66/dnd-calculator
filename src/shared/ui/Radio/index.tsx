@@ -6,11 +6,10 @@ import {
   SetStateAction,
   useContext,
 } from 'react';
-import { View } from '../../types';
 import styles from './styles.module.scss';
 
 interface RadioProps {
-  dispatch: Dispatch<SetStateAction<View>>;
+  dispatch: Dispatch<SetStateAction<string>>;
 }
 
 export const Radio = ({ dispatch, children }: PropsWithChildren<RadioProps>) => {
@@ -25,19 +24,22 @@ const RadioContext = createContext<RadioProps | null>(null);
 
 const useRadio = () => {
   const context = useContext(RadioContext);
-  return context;
+  if (!context) {
+    throw new Error();
+  }
+  return context.dispatch;
 };
 
 interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
-  value: View;
+  value: string;
   icon: JSX.Element;
 }
 
 Radio.Button = function ({ value, icon, ...props }: RadioButtonProps) {
-  const context = useRadio();
+  const dispatch = useRadio();
 
   const handleClick = () => {
-    context?.dispatch(value);
+    dispatch(value);
   };
 
   return (

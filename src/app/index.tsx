@@ -1,46 +1,37 @@
-import { useState } from 'react';
-import { Wrapper } from '@/components';
-import { View } from '@/shared/types';
-import { Button, Input, Radio } from '@/shared/ui';
 import { ReactComponent as ConstructorIcon } from '@/assets/constuctor.svg';
 import { ReactComponent as RuntimeIcon } from '@/assets/runtime.svg';
-import './styles.scss';
+import { Draggable } from '@/components';
 import Layout from '@/components/Layout';
+import { Button, ButtonProps, Input, Radio } from '@/shared/ui';
+import { values } from '@/shared/utils';
+import { useState } from 'react';
+import shortid from 'shortid';
+import './styles.scss';
 
 const App = () => {
-  // может стоит переписать, передавая в radio само значение, а не делая defaultChecked хз
-  const [view, setView] = useState<View>('constructor');
+  const [view, setView] = useState('');
 
   return (
     <div className="app">
-      {/* MOCK */}
       <div className="calculator">
-        <Wrapper>
+        <Draggable id={shortid()}>
           <Input />
-        </Wrapper>
-        <Wrapper>
-          <Button content="/" size="s" />
-          <Button content="x" size="s" />
-          <Button content="-" size="s" />
-          <Button content="+" size="s" />
-        </Wrapper>
-        <Wrapper>
-          <Button content="7" size="m" />
-          <Button content="8" size="m" />
-          <Button content="9" size="m" />
-          <Button content="4" size="m" />
-          <Button content="5" size="m" />
-          <Button content="6" size="m" />
-          <Button content="1" size="m" />
-          <Button content="2" size="m" />
-          <Button content="3" size="m" />
-
-          <Button content="0" size="l" />
-          <Button content="," size="m" />
-        </Wrapper>
-        <Wrapper>
-          <Button content="=" appearance="secondary" size="xl" />
-        </Wrapper>
+        </Draggable>
+        {Object.entries(values).map(([key, value]) => {
+          const id = shortid();
+          return (
+            <Draggable key={id} id={id}>
+              {value.map(({ content, size, appearance }) => (
+                <Button
+                  key={content}
+                  content={content}
+                  size={size}
+                  appearance={appearance}
+                />
+              ))}
+            </Draggable>
+          );
+        })}
       </div>
 
       <div className="header">

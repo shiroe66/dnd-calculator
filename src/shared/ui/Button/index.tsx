@@ -2,13 +2,12 @@ import * as React from 'react';
 import clsx from 'clsx';
 // FIX
 import styles from './styles.module.scss';
+import { Button as IButton } from '@/shared/interfaces';
 
 // FIX
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  appearance?: 'primary' | 'secondary';
-  content: string;
-  size: 's' | 'm' | 'l' | 'xl';
-}
+export interface ButtonProps
+  extends IButton,
+    React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export const Button = ({
   appearance = 'primary',

@@ -1,13 +1,16 @@
 .layout {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-
   width: 243px;
   height: 448px;
-  border: 2px dashed #c4c4c4;
-  border-radius: 6px;
+
+  &_drop {
+    align-items: center;
+    border: 2px dashed #c4c4c4;
+    border-radius: 6px;
+  }
 }
 
 .wrapper {
@@ -30,4 +33,15 @@
   font-size: 12px;
   line-height: 15px;
   color: #6b7280;
+}
+
+.item {
+  width: 240px;
+  background: #ffffff;
+  padding: 4px;
+  max-width: fit-content;
+  margin-bottom: 12px;
+  &_enter {
+    border-bottom: 1px solid #5d5fef;
+  }
 }

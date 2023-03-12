@@ -1,2 +1,2 @@
-export * from './Wrapper';
+export * from './Draggable';
 export * from './Layout';
